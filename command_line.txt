@@ -1,0 +1,3 @@
+kubectl get pods
+kubectl get pods -o wide
+kubectl expose deployment worker1 --type=NodePort --name=mysvc --dry-run=client -o yaml > service.yaml
