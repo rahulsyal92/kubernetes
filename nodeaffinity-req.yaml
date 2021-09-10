@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: rahul
+  name: rahul
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: rahul
+  template:
+    metadata:
+      labels:
+        app: rahul
+    spec:
+      containers:
+      - image: rahulsyal92/demo1
+        name: nginxapache
+        ports:
+        - containerPort: 80
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: node
+                operator: In
+                values: 
+                - worker1
