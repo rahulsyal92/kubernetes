@@ -6,11 +6,14 @@ metadata:
 spec:
   podSelector:
     matchLabels:
-      app: pari
+      label: a
   policyTypes:
   - Ingress
   ingress:
   - from:
     - namespaceSelector:
         matchLabels:
-          name: sonu
+          label: syal
+      podSelector:
+       matchLabels:
+          label: d

@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: rahul
+  name: rahul
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: rahul
+  template:
+    metadata:
+      labels:
+        app: rahul
+    spec:
+      containers:
+      - image: rahulsyal92/apache
+        name: nginxapache
+        ports:
+        - containerPort: 80
