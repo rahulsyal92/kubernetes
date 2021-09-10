@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   labels:
     app: rahul
-  name: rahul
+  name: worker1
 spec:
   replicas: 3
   selector:
@@ -15,7 +15,9 @@ spec:
         app: rahul
     spec:
       containers:
-      - image: rahulsyal92/apache
+      - image: rahulsyal92/demo1
         name: nginxapache
         ports:
         - containerPort: 80
+      nodeSelector:
+       node: worker1
